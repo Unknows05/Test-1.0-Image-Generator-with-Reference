@@ -14,6 +14,8 @@
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+   
 Fitur dan hal yang perlu di perhatikan :
 1. sudah support bahasa indonesia untuk modifikasi bentuk
 2. masih tahap pengembangan
