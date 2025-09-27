@@ -16,11 +16,11 @@ enum Tab {
 const PromptCard: React.FC<{ prompt: Prompt; onUsePrompt: (text: string) => void; }> = ({ prompt, onUsePrompt }) => {
   const isPublic = prompt.visibility === Visibility.PUBLIC;
   return (
-    <div className="bg-base-100 p-4 rounded-lg shadow transition-transform hover:scale-105 group" title={prompt.text}>
+    <div className="bg-base-100 dark:bg-dark-base-100 p-4 rounded-lg shadow transition-transform hover:scale-105 group" title={prompt.text}>
       <div className="flex justify-between items-start">
-        <p className="text-sm font-semibold text-base-content flex-1 pr-2 truncate">{prompt.name}</p>
+        <p className="text-sm font-semibold text-base-content dark:text-dark-content flex-1 pr-2 truncate">{prompt.name}</p>
         <div 
-          className={`flex items-center text-xs px-2 py-1 rounded-full ${isPublic ? 'bg-sky-100 text-sky-700' : 'bg-indigo-100 text-indigo-700'}`}
+          className={`flex items-center text-xs px-2 py-1 rounded-full ${isPublic ? 'bg-sky-100 text-sky-700 dark:bg-sky-900 dark:text-sky-300' : 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300'}`}
           title={prompt.visibility}
         >
           {isPublic ? <GlobeIcon className="w-3 h-3 mr-1" /> : <LockIcon className="w-3 h-3 mr-1" />}
@@ -28,7 +28,7 @@ const PromptCard: React.FC<{ prompt: Prompt; onUsePrompt: (text: string) => void
         </div>
       </div>
       <div className="flex justify-between items-center mt-3">
-        <span className="text-xs font-medium bg-base-300 text-base-content-secondary px-2 py-1 rounded">
+        <span className="text-xs font-medium bg-base-300 dark:bg-dark-base-300 text-base-content-secondary dark:text-dark-content-secondary px-2 py-1 rounded">
           {prompt.category}
         </span>
         <button
@@ -60,9 +60,9 @@ const PromptStorage: React.FC<PromptStorageProps> = ({ prompts, onUsePrompt }) =
   const TABS = [Tab.RECENT, Tab.PUBLIC, Tab.PRIVATE];
 
   return (
-    <div className="w-full bg-base-100 p-6 rounded-2xl shadow-lg">
-      <h2 className="text-xl font-bold text-base-content mb-4">Prompt Storage</h2>
-      <div className="border-b border-base-300 mb-4">
+    <div className="w-full bg-base-100 dark:bg-dark-base-100 p-6 rounded-2xl shadow-lg">
+      <h2 className="text-xl font-bold text-base-content dark:text-dark-content mb-4">Prompt Storage</h2>
+      <div className="border-b border-base-300 dark:border-dark-base-300 mb-4">
         <nav className="-mb-px flex space-x-6" aria-label="Tabs">
           {TABS.map(tab => (
             <button
@@ -71,7 +71,7 @@ const PromptStorage: React.FC<PromptStorageProps> = ({ prompts, onUsePrompt }) =
               className={`${
                 activeTab === tab
                   ? 'border-brand-primary text-brand-primary'
-                  : 'border-transparent text-base-content-secondary hover:text-base-content hover:border-gray-300'
+                  : 'border-transparent text-base-content-secondary dark:text-dark-content-secondary hover:text-base-content dark:hover:text-dark-content hover:border-gray-300 dark:hover:border-gray-500'
               } whitespace-nowrap py-3 px-1 border-b-2 font-medium text-sm transition-colors`}
             >
               {tab}
@@ -87,7 +87,7 @@ const PromptStorage: React.FC<PromptStorageProps> = ({ prompts, onUsePrompt }) =
           ))}
         </div>
       ) : (
-        <div className="text-center py-10 text-base-content-secondary">
+        <div className="text-center py-10 text-base-content-secondary dark:text-dark-content-secondary">
           <p>No prompts found in this category.</p>
           <p className="text-sm mt-1">
             {activeTab === Tab.RECENT ? 'Generate an image and save the prompt to see it here.' : `Save a prompt as "${activeTab === Tab.PUBLIC ? 'Public': 'Private'}" to see it here.`}

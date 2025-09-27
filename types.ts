@@ -13,3 +13,8 @@ export interface Prompt {
   visibility: Visibility;
   createdAt: number;
 }
+
+export interface FocalLengthOption {
+  name: string;
+  value: string;
+}
