@@ -1,0 +1,5 @@
+{
+  "name": "AI Prompt Hub & Image Generator",
+  "description": "An application to store and categorize your favorite AI prompts. You can generate high-quality images using saved or new prompts with various aspect ratios, powered by the Gemini API.",
+  "requestFramePermissions": []
+}
